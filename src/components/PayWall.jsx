@@ -179,7 +179,7 @@ export default function PayWall({ children }) {
               <h2>Welcome, Premium Member!</h2>
               <p>Your subscription is now active.</p>
               <p className="success-note">Just kidding, Steve! It's all free. 😄</p>
-              <p className="success-note">Good luck with everything! - Your Name</p>
+              <p className="success-note">Good luck with everything! - Ryan</p>
             </div>
           )}
         </div>
