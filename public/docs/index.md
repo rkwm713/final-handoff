@@ -12,9 +12,11 @@ Start with the **Project Overview** to see how a project flows from start to fin
 
 | If you work on... | Go to |
 |-------------------|-------|
+| Drafting, permits & RULIS | [Drafting Project Overview](drafting/overview) |
+| Electric Vehicle projects | [EV Project Overview](ev/overview) |
 | Small Cell projects | [Small Cell Project Overview](small-cell/overview) |
 
-> **Note:** Project Overview pages are being added for all trackers. Small Cell is complete with full workflow diagrams, phases, and status guides.
+> **Note:** Project Overview pages include complete workflow phases, status guides, and decision trees. Closing Tracker overview coming soon.
 
 ---
 

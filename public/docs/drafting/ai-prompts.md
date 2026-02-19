@@ -284,4 +284,13 @@ Should return a negative number if the deadline has passed.
 
 ---
 
+## Related Documentation
+
+- [Project Overview](overview) - Complete workflow from request to completion
+- [User Guide](guide) - Field definitions and list usage
+- [Automation Guide](automation) - Power Automate flows
+- [Excel Info](excel-info) - Power Query M Code and Excel PM Tracker
+
+---
+
 **Last Updated:** February 19, 2026

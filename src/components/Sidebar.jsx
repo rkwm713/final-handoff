@@ -79,7 +79,12 @@ export default function Sidebar({ isOpen, onClose }) {
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
-            <span className="logo-text">TechServ Docs</span>
+            <span className="logo-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </span>
+            <span className="logo-text">TechServ</span>
           </div>
           <button className="sidebar-close" onClick={onClose} aria-label="Close sidebar">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
@@ -98,8 +103,8 @@ export default function Sidebar({ isOpen, onClose }) {
           ))}
         </nav>
         <div className="sidebar-footer">
-          <p>TechServ SharePoint Documentation</p>
-          <p className="version">Last updated: Feb 2026</p>
+          <p>TechServ Engineering Consulting</p>
+          <p className="version">SharePoint Documentation</p>
         </div>
       </aside>
     </>

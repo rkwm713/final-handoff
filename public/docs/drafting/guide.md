@@ -741,11 +741,15 @@ Branches:
 
 ## Related Documentation
 
+🗺️ **[Project Overview](overview)** - Complete workflow from request submission through RULIS approval, with all phases, statuses, and decision points mapped out
+
 📘 **[Automation Guide](automation)** - Explains all the Power Automate flows that run automatically on this list, including:
 - Date Stamps (automatically fills in dates when you change Status or RULIS Status)
 - RULIS Additional Info Alert (sends Teams notification when RULIS needs more info)
 
 📊 **[Excel Info](excel-info)** - Power Query M Code documentation for the Drafting PM Tracker Excel file
+
+🤖 **[AI Prompts](ai-prompts)** - Copy-paste prompts for AI assistants to help with Drafting tracker questions
 
 ---
 

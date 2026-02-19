@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Table of Contents - TechServ Brand
+   ========================================================================== */
+
 .toc {
   position: sticky;
   top: 80px;
@@ -5,17 +9,18 @@
   max-height: calc(100vh - 100px);
   overflow-y: auto;
   flex-shrink: 0;
-  padding-left: 1rem;
-  border-left: 1px solid var(--border-color);
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--color-light);
 }
 
 .toc-header {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-muted);
-  margin-bottom: 0.75rem;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-md);
 }
 
 .toc-list {
@@ -25,35 +30,40 @@
 }
 
 .toc-item {
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--space-xs);
 }
 
 .toc-item a {
   display: block;
-  padding: 0.25rem 0;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+  padding: var(--space-xs) 0;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-secondary);
   text-decoration: none;
   line-height: 1.4;
-  transition: color 0.15s ease;
+  transition: color var(--transition-fast);
 }
 
 .toc-item a:hover {
-  color: var(--text-primary);
+  color: var(--color-primary);
 }
 
 .toc-item a.active {
-  color: var(--primary-color);
-  font-weight: 500;
+  color: var(--color-primary);
+  font-weight: 700;
 }
 
 .toc-level-3 {
-  padding-left: 0.75rem;
+  padding-left: var(--space-md);
 }
 
 .toc-level-3 a {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 
 @media (max-width: 1024px) {
   .toc {

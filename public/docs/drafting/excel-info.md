@@ -563,8 +563,10 @@ If SharePoint adds a new person field:
 
 ## Related Documentation
 
-- [Drafting Team Tracker User Guide](guide) - Field definitions and list usage
-- [Drafting Tracker Automation Guide](automation) - Power Automate flows
+- [Project Overview](overview) - Complete workflow from request to completion
+- [User Guide](guide) - Field definitions and list usage
+- [Automation Guide](automation) - Power Automate flows
+- [AI Prompts](ai-prompts) - Copy-paste prompts for AI assistants
 
 ---
 

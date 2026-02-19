@@ -15,11 +15,13 @@ export default function App() {
           <Route path="closing/excel-info" element={<DocPage />} />
           <Route path="closing/ai-prompts" element={<DocPage />} />
           {/* Drafting Tracker */}
+          <Route path="drafting/overview" element={<DocPage />} />
           <Route path="drafting/guide" element={<DocPage />} />
           <Route path="drafting/automation" element={<DocPage />} />
           <Route path="drafting/excel-info" element={<DocPage />} />
           <Route path="drafting/ai-prompts" element={<DocPage />} />
           {/* EV Tracker */}
+          <Route path="ev/overview" element={<DocPage />} />
           <Route path="ev/guide" element={<DocPage />} />
           <Route path="ev/automation" element={<DocPage />} />
           <Route path="ev/excel-info" element={<DocPage />} />

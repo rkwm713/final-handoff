@@ -32,6 +32,11 @@ export const navigation = [
     title: 'Drafting Tracker',
     children: [
       {
+        title: 'Project Overview',
+        path: '/drafting/overview',
+        description: 'Complete workflow from intake to completion',
+      },
+      {
         title: 'User Guide',
         path: '/drafting/guide',
         description: 'Fields, views, and workflows for the Drafting Tracker',
@@ -121,6 +126,7 @@ export const docPaths = {
   '/closing/automation': '/docs/closing/automation.md',
   '/closing/excel-info': '/docs/closing/excel-info.md',
   '/closing/ai-prompts': '/docs/closing/ai-prompts.md',
+  '/drafting/overview': '/docs/drafting/overview.md',
   '/drafting/guide': '/docs/drafting/guide.md',
   '/drafting/automation': '/docs/drafting/automation.md',
   '/drafting/excel-info': '/docs/drafting/excel-info.md',

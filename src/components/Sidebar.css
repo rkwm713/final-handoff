@@ -1,11 +1,15 @@
+/* ==========================================================================
+   Sidebar - TechServ Brand
+   ========================================================================== */
+
 .sidebar-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(10, 50, 81, 0.6);
   z-index: 40;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--transition-base);
 }
 
 .sidebar-overlay.visible {
@@ -19,95 +23,111 @@
   left: 0;
   width: 280px;
   height: 100vh;
-  background: var(--sidebar-bg);
-  border-right: 1px solid var(--border-color);
+  background: var(--bg-dark);
+  border-right: none;
   display: flex;
   flex-direction: column;
   z-index: 50;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-base);
 }
+
+/* ==========================================================================
+   Sidebar Header - TechServ Brand
+   ========================================================================== */
 
 .sidebar-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border-color);
+  padding: var(--space-lg) var(--space-lg);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-sm);
 }
 
 .logo-icon {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  color: var(--color-cta);
 }
 
 .logo-text {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
 }
 
 .sidebar-close {
   display: none;
   background: none;
   border: none;
-  padding: 0.25rem;
+  padding: var(--space-xs);
   cursor: pointer;
-  color: var(--text-secondary);
-  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-sm);
 }
 
 .sidebar-close:hover {
-  background: var(--hover-bg);
-  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
 }
+
+/* ==========================================================================
+   Sidebar Navigation
+   ========================================================================== */
 
 .sidebar-nav {
   flex: 1;
   overflow-y: auto;
-  padding: 1rem 0;
+  padding: var(--space-md) 0;
 }
 
 .nav-item,
 .nav-group-header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.625rem 1.25rem;
-  color: var(--text-secondary);
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   width: 100%;
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
-  transition: all 0.15s ease;
+  transition: all var(--transition-fast);
 }
 
 .nav-item:hover,
 .nav-group-header:hover {
-  background: var(--hover-bg);
-  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
 }
 
 .nav-item.active {
-  background: var(--primary-light);
-  color: var(--primary-color);
-  font-weight: 500;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-weight: 700;
 }
 
 .nav-group.active > .nav-group-header {
-  color: var(--primary-color);
+  color: var(--color-cta);
 }
 
 .nav-icon {
-  font-size: 1.1rem;
-  width: 1.5rem;
+  font-size: 1.25rem;
+  width: 1.75rem;
   text-align: center;
 }
 
@@ -119,54 +139,73 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-base);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .nav-chevron.open {
   transform: rotate(90deg);
 }
 
+/* ==========================================================================
+   Sidebar Child Navigation
+   ========================================================================== */
+
 .nav-children {
-  padding-left: 1rem;
+  padding-left: var(--space-md);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .nav-child {
   display: block;
-  padding: 0.5rem 1.25rem 0.5rem 2.5rem;
-  color: var(--text-secondary);
+  padding: var(--space-sm) var(--space-lg) var(--space-sm) var(--space-2xl);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  font-size: 0.85rem;
-  border-left: 2px solid transparent;
-  transition: all 0.15s ease;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-left: 3px solid transparent;
+  transition: all var(--transition-fast);
 }
 
 .nav-child:hover {
-  background: var(--hover-bg);
-  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
 }
 
 .nav-child.active {
-  background: var(--primary-light);
-  color: var(--primary-color);
-  border-left-color: var(--primary-color);
-  font-weight: 500;
+  background: rgba(4, 69, 141, 0.4);
+  color: #FFFFFF;
+  border-left-color: var(--color-cta);
+  font-weight: 700;
 }
 
+/* ==========================================================================
+   Sidebar Footer
+   ========================================================================== */
+
 .sidebar-footer {
-  padding: 1rem 1.25rem;
-  border-top: 1px solid var(--border-color);
+  padding: var(--space-md) var(--space-lg);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .sidebar-footer p {
   margin: 0;
+  font-family: var(--font-body);
 }
 
 .sidebar-footer .version {
-  margin-top: 0.25rem;
+  margin-top: var(--space-xs);
   opacity: 0.7;
 }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 
 @media (max-width: 768px) {
   .sidebar {

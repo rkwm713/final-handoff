@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Layout - TechServ Brand
+   ========================================================================== */
+
 .layout {
   display: flex;
   min-height: 100vh;
@@ -11,15 +15,19 @@
   min-height: 100vh;
 }
 
+/* ==========================================================================
+   Header - TechServ Brand
+   ========================================================================== */
+
 .header {
   position: sticky;
   top: 0;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1.5rem;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   background: var(--bg-primary);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--color-light);
   z-index: 30;
 }
 
@@ -27,40 +35,55 @@
   display: none;
   background: none;
   border: none;
-  padding: 0.5rem;
+  padding: var(--space-sm);
   cursor: pointer;
-  color: var(--text-secondary);
-  border-radius: 6px;
+  color: var(--color-secondary);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  text-transform: uppercase;
 }
 
 .menu-button:hover {
   background: var(--hover-bg);
-  color: var(--text-primary);
+  color: var(--color-primary);
 }
 
 .header-title {
-  font-weight: 600;
-  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-dark);
 }
+
+/* ==========================================================================
+   Search Button - TechServ Brand
+   ========================================================================== */
 
 .search-button {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-sm);
   margin-left: auto;
-  padding: 0.5rem 0.75rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-light);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  color: var(--text-secondary);
+  color: var(--color-secondary);
+  font-family: var(--font-heading);
   font-size: 0.875rem;
-  transition: all 0.15s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-base);
 }
 
 .search-button:hover {
-  border-color: var(--primary-color);
-  color: var(--text-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--bg-primary);
 }
 
 .search-label {
@@ -69,21 +92,29 @@
 
 .search-shortcut {
   display: none;
-  padding: 0.125rem 0.375rem;
+  padding: 2px 6px;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   font-size: 0.75rem;
-  font-family: inherit;
+  font-family: var(--font-mono);
 }
+
+/* ==========================================================================
+   Main Content
+   ========================================================================== */
 
 .main-content {
   flex: 1;
-  padding: 2rem;
+  padding: var(--space-xl);
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 
 @media (min-width: 640px) {
   .search-label {
@@ -109,6 +140,6 @@
   }
 
   .main-content {
-    padding: 1.5rem 1rem;
+    padding: var(--space-lg) var(--space-md);
   }
 }

@@ -366,8 +366,10 @@ If you experience issues with any automated flows:
 
 ## Related Documentation
 
-- [Drafting Tracker User Guide](guide) - Field definitions, views, and workflows
-- [Drafting Tracker Excel Info](excel-info) - Power Query M Code and Excel PM Tracker
+- [Project Overview](overview) - Complete workflow from request to completion
+- [User Guide](guide) - Field definitions, views, and workflows
+- [Excel Info](excel-info) - Power Query M Code and Excel PM Tracker
+- [AI Prompts](ai-prompts) - Copy-paste prompts for AI assistants
 
 ---
 
