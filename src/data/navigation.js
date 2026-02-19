@@ -2,11 +2,9 @@ export const navigation = [
   {
     title: 'Home',
     path: '/',
-    icon: '🏠',
   },
   {
     title: 'Closing Tracker',
-    icon: '📋',
     children: [
       {
         title: 'User Guide',
@@ -32,7 +30,6 @@ export const navigation = [
   },
   {
     title: 'Drafting Tracker',
-    icon: '✏️',
     children: [
       {
         title: 'User Guide',
@@ -58,7 +55,6 @@ export const navigation = [
   },
   {
     title: 'EV Tracker',
-    icon: '⚡',
     children: [
       {
         title: 'User Guide',
@@ -84,7 +80,6 @@ export const navigation = [
   },
   {
     title: 'Small Cell Tracker',
-    icon: '📡',
     children: [
       {
         title: 'Project Overview',

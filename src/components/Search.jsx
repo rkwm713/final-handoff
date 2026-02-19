@@ -136,9 +136,6 @@ export default function Search({ isOpen, onClose }) {
                 onClick={() => handleSelect(result.item.path)}
                 onMouseEnter={() => setSelectedIndex(index)}
               >
-                <div className="result-icon">
-                  {result.item.type === 'page' ? '📄' : '📑'}
-                </div>
                 <div className="result-content">
                   <div className="result-title">{result.item.title}</div>
                   {result.item.parent && (
@@ -148,7 +145,6 @@ export default function Search({ isOpen, onClose }) {
                     <div className="result-description">{result.item.description}</div>
                   )}
                 </div>
-                <div className="result-arrow">→</div>
               </button>
             ))}
           </div>

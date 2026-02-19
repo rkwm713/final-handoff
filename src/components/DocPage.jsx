@@ -147,7 +147,6 @@ export default function DocPage() {
                 return (
                   <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
                     {children}
-                    <span className="external-icon"> ↗</span>
                   </a>
                 );
               }

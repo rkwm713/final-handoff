@@ -19,7 +19,6 @@ function NavItem({ item, isOpen, onToggle }) {
           onClick={onToggle}
           aria-expanded={isOpen}
         >
-          <span className="nav-icon">{item.icon}</span>
           <span className="nav-title">{item.title}</span>
           <span className={`nav-chevron ${isOpen ? 'open' : ''}`}>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
@@ -49,7 +48,6 @@ function NavItem({ item, isOpen, onToggle }) {
       to={item.path}
       className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
     >
-      <span className="nav-icon">{item.icon}</span>
       <span className="nav-title">{item.title}</span>
     </NavLink>
   );
@@ -81,7 +79,6 @@ export default function Sidebar({ isOpen, onClose }) {
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
-            <span className="logo-icon">📚</span>
             <span className="logo-text">TechServ Docs</span>
           </div>
           <button className="sidebar-close" onClick={onClose} aria-label="Close sidebar">
