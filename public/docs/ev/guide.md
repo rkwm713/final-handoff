@@ -11,7 +11,7 @@
 1. [Overview](#overview)
 2. [List Settings and Configuration](#list-settings-and-configuration)
 3. [Understanding the Fields](#understanding-the-fields)
-4. [Views Explained](#views-explained)
+4. [Setting Up Views](#setting-up-views)
 5. [How to Make Common Changes](#how-to-make-common-changes)
 6. [Understanding Field Dependencies](#understanding-field-dependencies)
 7. [Troubleshooting](#troubleshooting)
@@ -26,9 +26,7 @@ The **EV Team Tracker** is a Microsoft List that tracks Electric Vehicle (EV) in
 
 ### Key Statistics
 
-- **Total Items**: 495 projects
 - **Total Fields**: 65 columns
-- **Views**: 2 different views
 - **Versioning**: Enabled (keeps up to 50 versions)
 - **Attachments**: Allowed
 
@@ -228,64 +226,159 @@ These fields are automatically managed by SharePoint:
 
 ---
 
-## Views Explained
+## Setting Up Views
 
-The list has **2 views** that display data differently:
+Views help you filter, sort, and organize the list data for different purposes. Here's how to create useful views for the EV Team Tracker.
 
-### 1. All Items (Default View) ⭐
+### How to Create a New View
 
-**What it shows:** All projects with key columns
+1. Click the view dropdown (next to current view name)
+2. Select **Create new view**
+3. Choose **Standard view**
+4. Name your view descriptively
+5. Configure columns, filters, and sorting
+6. Click **OK**
 
-**Displayed Columns:**
-- WO Number (LinkTitle)
-- Status
-- Designer
-- Field Tech
-- Location Type (JobType)
-- Oncor UD
-- Customer
-- Start Date (ReceivedDate)
-- Delivered Date
-- Permit Type
-- SharePoint Link
-- Equipment
-- Status Changed Date
+### Recommended View Types
 
-**Settings:**
-- Shows 30 items per page
-- No filters applied
-- Default view when opening the list
+#### All Items Overview
 
-**When to use:** General overview of all projects
+Complete list for general tracking.
 
-### 2. EV Project - New Job Entry
+**Setup:**
+1. Name: "All Items"
+2. **Columns to include:**
+   - WO Number, Status, Designer, Field Tech
+   - Location Type, Oncor UD, Customer
+   - Start Date, Delivered Date
+   - Permit Type, SharePoint Link, Equipment
+   - Status Changed Date
+3. **Filter:** None (shows everything)
+4. **Sort by:** Status Changed Date (descending) or Status
+5. **Row limit:** 30-50 for performance
 
-**What it shows:** Fields needed when entering a new project
+#### New Job Entry
 
-**Displayed Columns:**
-- WO Number
-- Status
-- Designer
-- Field Tech
-- Oncor UD
-- Customer
-- Start Date (ReceivedDate)
-- Location Type (JobType)
-- CRD (Customer Requested Date)
-- TS SOW
-- Delivered Date
-- Canceled Date
-- Permit Type
-- Permit Submitted
-- Permit Received
-- Equipment
-- Equipment Order Date
+Streamlined view for adding projects.
 
-**Settings:**
-- Shows 30 items per page
-- No filters applied
+**Setup:**
+1. Name: "New Job Entry"
+2. **Columns to include:**
+   - WO Number, Status, Designer, Field Tech
+   - Oncor UD, Customer, Start Date
+   - Location Type, CRD, TS SOW
+   - Permit Type, Equipment
+3. **Filter:** None
+4. **Sort by:** Start Date (descending) - newest first
 
-**When to use:** When adding new projects to the list
+#### My Projects (Designer)
+
+Personal view filtered by designer.
+
+**Setup:**
+1. Name: Your name or "My Projects"
+2. **Columns to include:**
+   - WO Number, Status, Customer
+   - Start Date, Delivered Date
+   - Permit Type, Status Changed Date
+3. **Filter:** Designer equals [Me] or your specific name
+4. **Sort by:** Status or Start Date
+
+#### My Projects (Field Tech)
+
+Personal view filtered by field technician.
+
+**Setup:**
+1. Name: "Field Tech - [Name]"
+2. **Columns to include:**
+   - WO Number, Status, Designer, Customer
+   - Start Date, Location Type
+   - PowerWalk Complete, Final Stake
+3. **Filter:** Field Tech equals [Me] or specific name
+4. **Sort by:** Status or Start Date
+
+#### Active Projects Only
+
+Excludes completed and canceled.
+
+**Setup:**
+1. Name: "Active Projects"
+2. **Columns to include:** Same as All Items
+3. **Filter:**
+   - Status not equal to "Complete"
+   - AND Status not equal to "Canceled"
+4. **Sort by:** Status Changed Date (descending)
+
+#### Projects On Hold
+
+Shows all held projects.
+
+**Setup:**
+1. Name: "On Hold"
+2. **Columns to include:**
+   - WO Number, Status, Designer, Field Tech
+   - Customer, Notes, Status Changed Date
+3. **Filter:** Status contains "Hold"
+4. **Sort by:** Status Changed Date (ascending) - oldest holds first
+
+#### Permit Tracking
+
+Focus on permit-related fields.
+
+**Setup:**
+1. Name: "Permit Tracking"
+2. **Columns to include:**
+   - WO Number, Status, Customer
+   - Permit Type, Permit Submitted, Permit Received
+   - Designer, Notes
+3. **Filter:** Permit Type is not blank AND Permit Type not equal to "N/A"
+4. **Sort by:** Permit Submitted (ascending)
+
+#### By Customer
+
+Create views for specific customers.
+
+**Setup:**
+1. Name: "Tesla Projects" (or other customer)
+2. **Filter:** Customer equals "Tesla"
+3. Include relevant columns for that customer's workflow
+
+#### By Status Stage
+
+Create views for specific workflow stages.
+
+**Setup:**
+1. Name: "AEGIS Design Queue"
+2. **Filter:** Status equals "AEGIS Design"
+3. **Columns:** Focus on design-relevant fields
+4. **Sort by:** Start Date (ascending) - oldest first
+
+### View Best Practices
+
+**Naming conventions:**
+- Personal views: Use your name or role
+- Status views: Name after the status (e.g., "In AEGIS QA")
+- Customer views: Use customer name
+
+**Column selection:**
+- Include Status Changed Date to see activity
+- Include SharePoint Link for quick folder access
+- Limit columns to 10-12 for readability
+
+**Filtering tips:**
+- Use [Me] token for personal views
+- Combine status filters with date filters
+- Filter by Location Type (ONSITE/OFFSITE) for focused work
+
+**Sorting tips:**
+- Sort by Start Date for workload prioritization
+- Sort by Status Changed Date to see recent activity
+- Sort by Customer for grouped work
+
+**Public vs. Private:**
+- Make team-wide views public
+- Personal assignment views can be private
+- Customer-specific views should be public for the team
 
 ---
 

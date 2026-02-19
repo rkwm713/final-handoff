@@ -11,7 +11,7 @@
 1. [Overview](#overview)
 2. [List Settings and Configuration](#list-settings-and-configuration)
 3. [Understanding the Fields](#understanding-the-fields)
-4. [Views Explained](#views-explained)
+4. [Setting Up Views](#setting-up-views)
 5. [How to Make Common Changes](#how-to-make-common-changes)
 6. [Understanding Field Dependencies](#understanding-field-dependencies)
 7. [Troubleshooting](#troubleshooting)
@@ -26,9 +26,7 @@ The **Small Cell Team Tracker** is a Microsoft List for tracking small cell infr
 
 ### Key Statistics
 
-- **Total Items**: 160 projects
 - **Total Fields**: 54 columns
-- **Views**: 6 different views
 - **Versioning**: Enabled (keeps up to 50 versions)
 - **Attachments**: Allowed
 
@@ -243,93 +241,166 @@ Each major status has an associated "End Date" field to track when that stage wa
 
 ---
 
-## Views Explained
+## Setting Up Views
 
-The list has **6 views** designed for different purposes:
+Views help you filter, sort, and organize the list data for different purposes. Here's how to create useful views for the Small Cell Team Tracker.
 
-### 1. All Items (Default View) ⭐
+### How to Create a New View
 
-**What it shows:** All projects with key tracking columns
+1. Click the view dropdown (next to current view name)
+2. Select **Create new view**
+3. Choose **Standard view**
+4. Name your view descriptively
+5. Configure columns, filters, and sorting
+6. Click **OK**
 
-**Displayed Columns:**
-- WO Number (LinkTitle)
-- Status
-- Field Tech
-- Designer
-- Site Name
-- Oncor UD
-- Work Points
-- Received Date
-- Delivered Date
-- Canceled Date
-- Permits
-- Permit Submitted
-- Permit Received
-- Previous Status
-- Small Cell WR Folder
+### Recommended View Types
 
-**Settings:**
-- Shows 30 items per page
-- No filters applied
-- Default view when opening the list
+#### All Items Overview
 
-**When to use:** General overview of all small cell projects
+Complete list for general tracking.
 
-### 2. Erika
+**Setup:**
+1. Name: "All Items"
+2. **Columns to include:**
+   - WO Number, Status, Field Tech, Designer
+   - Site Name, Oncor UD, Work Points
+   - Received Date, Delivered Date
+   - Permits, Permit Submitted, Permit Received
+   - Previous Status, Small Cell WR Folder
+3. **Filter:** None (shows everything)
+4. **Sort by:** Received Date (descending) or Status
+5. **Row limit:** 30 for performance
 
-**Purpose:** Personal view filtered for designer Erika King
+#### Personal Designer View
 
-**Filter:** Designer equals "Erika King"
+Shows only items assigned to a specific designer.
 
-**Displayed Columns:** Same as All Items
+**Setup:**
+1. Name: Designer's name (e.g., "John's Projects")
+2. **Columns to include:**
+   - WO Number, Status, Site Name
+   - Work Points, Received Date, Delivered Date
+   - Permits, Small Cell WR Folder
+3. **Filter:** Designer equals [Me] or specific name
+4. **Sort by:** Status or Received Date
 
-**When to use:** Erika's personal workload view
+#### Field Tech View
 
-### 3. Charles
+For field technician workload tracking.
 
-**Purpose:** Personal view filtered for designer Charles Schott
+**Setup:**
+1. Name: "Field Crew" or specific tech name
+2. **Columns to include:**
+   - WO Number, Status, Site Name
+   - Designer, Customer, Subcontractor
+   - Work Points, Received Date
+   - Power Walk End Date
+3. **Filter:** Field Tech equals [Me] or specific name (optional)
+4. **Sort by:** Status - prioritize "Power Walk Needed"
 
-**Filter:** Designer equals "Charles Schott"
+#### Job Entry View
 
-**Displayed Columns:** Same as All Items
+Streamlined for adding new projects.
 
-**When to use:** Charles's personal workload view
+**Setup:**
+1. Name: "Job Entry" or "New Small Cell Job"
+2. **Columns to include:**
+   - WO Number, WR, Field Tech, Designer
+   - Site Name, Oncor UD, Customer, Subcontractor
+   - Work Points, Received Date
+   - Small Cell WR Folder, Status
+3. **Filter:** None or Status equals "Power Walk Needed"
+4. **Sort by:** Received Date (descending)
 
-### 4. Field Crew
+#### Active Projects Only
 
-**Purpose:** View for field technicians
+Excludes completed and canceled.
 
-**Displayed Columns:** Same as All Items (no special filter)
+**Setup:**
+1. Name: "Active Projects"
+2. **Columns to include:** Same as All Items
+3. **Filter:**
+   - Status not equal to "Complete"
+   - AND Status not equal to "Canceled"
+4. **Sort by:** Status or Received Date
 
-**When to use:** Field crew coordination
+#### Projects On Hold
 
-### 5. New Small Cell Job
+Shows all held projects for follow-up.
 
-**Purpose:** Template view for entering new jobs
+**Setup:**
+1. Name: "On Hold"
+2. **Columns to include:**
+   - WO Number, Status, Site Name
+   - Designer, Customer
+   - Hold Start/End dates (if applicable)
+   - Previous Status
+3. **Filter:** Status contains "Hold"
+4. **Sort by:** Status Changed Date (ascending)
 
-**Displayed Columns:** Same as All Items
+#### By Customer
 
-**When to use:** When adding new small cell projects to the tracker
+Create views for specific customers.
 
-### 6. Job Entry
+**Setup:**
+1. Name: "AT&T Projects" (or other customer)
+2. **Filter:** Customer equals "AT&T"
+3. Include relevant columns
+4. **Sort by:** Received Date or Status
 
-**Purpose:** Focused view for data entry
+#### By Status Stage
 
-**Displayed Columns:**
-- WO Number
-- WR
-- Field Tech
-- Designer
-- Site Name
-- Oncor UD
-- Customer
-- Subcontractor
-- Work Points
-- Received Date
-- Small Cell WR Folder
-- Status
+Create views for specific workflow stages.
 
-**When to use:** Initial job entry and setup
+**Setup:**
+1. Name: "Katapult Design Queue"
+2. **Filter:** Status equals "Katapult Design"
+3. **Columns:** Focus on design-relevant fields
+4. **Sort by:** Received Date (ascending) - oldest first
+
+#### Permit Tracking
+
+Focus on projects with permit requirements.
+
+**Setup:**
+1. Name: "Permit Tracking"
+2. **Columns to include:**
+   - WO Number, Status, Site Name
+   - Permits, Permit Submitted, Permit Received
+   - Customer, Designer
+3. **Filter:** Permits is not blank AND Permits not equal to "N/A"
+4. **Sort by:** Permit Submitted (ascending)
+
+### View Best Practices
+
+**Naming conventions:**
+- Personal views: Use person's name
+- Status views: Name after the status (e.g., "In AEGIS QA")
+- Customer views: Use customer name
+- Admin/utility views: Prefix with "zz" to sort to bottom
+
+**Column selection:**
+- Always include Status and Site Name for identification
+- Include Small Cell WR Folder for quick document access
+- Include Previous Status to see workflow progression
+- Limit to 10-15 columns for readability
+
+**Filtering tips:**
+- Use [Me] token for personal assignment views
+- Filter by Customer for customer-specific tracking
+- Combine status filters (e.g., show all design stages)
+- Filter out Complete and Canceled for active work views
+
+**Sorting tips:**
+- Sort by Received Date for workload prioritization (oldest first)
+- Sort by Status for workflow-organized views
+- Add secondary sort for same-status items
+
+**Public vs. Private:**
+- Team-wide views should be public
+- Personal workload views can be private
+- Make customer-specific views public for team coordination
 
 ---
 

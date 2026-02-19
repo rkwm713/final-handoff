@@ -11,7 +11,7 @@
 1. [Overview](#overview)
 2. [List Settings and Configuration](#list-settings-and-configuration)
 3. [Understanding the Fields](#understanding-the-fields)
-4. [Views Explained](#views-explained)
+4. [Setting Up Views](#setting-up-views)
 5. [How to Make Common Changes](#how-to-make-common-changes)
 6. [Understanding Field Dependencies](#understanding-field-dependencies)
 7. [Troubleshooting](#troubleshooting)
@@ -26,9 +26,7 @@ The **Closing Tracker** is a Microsoft List for managing the closing process of 
 
 ### Key Statistics
 
-- **Total Items**: 314 work orders
 - **Total Fields**: 60 columns
-- **Views**: 9 different views
 - **Versioning**: Enabled (keeps up to 50 versions)
 - **Attachments**: Allowed
 
@@ -131,151 +129,113 @@ The list tracks start and end dates for various stages:
 
 ---
 
-## Views Explained
+## Setting Up Views
 
-The list has **9 specialized views**:
+Views help you filter, sort, and organize the list data for different purposes. Here's how to create useful views for the Closing Tracker.
 
-### 1. All Items (Default View) ⭐
+### How to Create a New View
 
-**Purpose:** Complete overview of all work orders
+1. Click the view dropdown (next to current view name)
+2. Select **Create new view**
+3. Choose **Standard view**
+4. Name your view descriptively
+5. Configure columns, filters, and sorting
+6. Click **OK**
 
-**Sorted by:** StatusOrder (ascending) - keeps workflow stages in logical order
+### Recommended View Types
 
-**Key Columns:**
-- CLOSER
-- Title
-- STATUS
-- Checkpoint
-- STATUS CHANGED DATE
-- INSERVICE DATE
-- SOX TIMER
-- DESIGN GROUP
-- Last Touched
-- BLOCKERS
-- EXT CONTACT STATUS
-- Storeroom/FCC start dates
-- STATION COUNT
-- INVOICE-TO
+#### Personal Workload View
 
-**Settings:** Shows 500 items per page
+Shows only items assigned to you.
 
-**When to use:** Daily operations, full visibility
+**Setup:**
+1. Name: Your name (e.g., "John's Items")
+2. **Columns to include:**
+   - Title, STATUS, Checkpoint, BLOCKERS
+   - Storeroom Status, FCC Status
+   - SR/FCC Start dates, Last Touched
+   - EXT CONTACT STATUS
+3. **Filter:** CLOSER equals [Me] or your specific name
+4. **Sort by:** StatusOrder (ascending)
+5. **Row limit:** 30-50 items
 
-### 2. zz Adding Jobs
+#### Job Intake View
 
-**Purpose:** View for adding new jobs to the tracker
+For adding new work orders to the tracker.
 
-**Filter:** Shows only items where STATUS is null or "Ready for Assignment"
+**Setup:**
+1. Name: "Adding Jobs" or "Intake"
+2. **Columns to include:**
+   - Title, DESIGN GROUP, STATION COUNT
+   - INVOICE-TO, INSERVICE DATE
+   - STATUS, CLOSER
+3. **Filter:** STATUS equals "Ready for Assignment" OR STATUS is blank
+4. **Sort by:** INSERVICE DATE (ascending)
 
-**Key Columns:**
-- Title
-- DESIGN GROUP
-- STATION COUNT
-- INVOICE-TO
-- INSERVICE DATE
-- STATUS
-- CLOSER
+#### SOX Compliance View
 
-**When to use:** Intake process, assigning new work orders
+For tracking aging and compliance timers.
 
-### 3. Chloe
+**Setup:**
+1. Name: "SOX Tracking"
+2. **Columns to include:**
+   - Title, CLOSER, STATUS, DAYS IN STATUS
+   - BLOCKERS, Last Touched, SOX TIMER
+   - STATION COUNT, DESIGN GROUP, INSERVICE DATE
+3. **Filter:** STATUS not equal to "Completed"
+4. **Sort by:** SOX TIMER (descending) - shows oldest first
 
-**Purpose:** Personal view filtered for Chloe Petzold
+#### External Communications View
 
-**Filter:** CLOSER equals "Chloe Petzold"
+For managing Storeroom and FCC contacts.
 
-**Key Columns:**
-- Title
-- CLOSER
-- STATUS
-- BLOCKERS
-- Storeroom Status
-- FCC Status
-- SR/FCC Start dates
-- Last Touched
-- EXT CONTACT STATUS
-- Checkpoint
-- BLOCKER
+**Setup:**
+1. Name: "External Contacts" or "SR/FCC"
+2. **Columns to include:**
+   - STATUS, Title, CLOSER
+   - Storeroom Status, SRStart, SREnd
+   - FCC Status, FCCStart, FCCEnd
+   - Last Touched, EXT CONTACT STATUS
+3. **Filter:** EXT CONTACT STATUS not equal to "Response Received"
+4. **Sort by:** StatusOrder (ascending)
 
-**When to use:** Individual closer's workload view (template for other closers)
+#### Flow/Automation View
 
-### 4. jerel2
+Minimal view for Power Automate flows to process.
 
-**Purpose:** Testing view with date range filter
+**Setup:**
+1. Name: "Flow - [Purpose]"
+2. **Columns to include:** Only fields the flow needs
+   - Typically: Title, ID, STATUS, STATUS CHANGED DATE
+3. **Filter:** Based on flow requirements
+4. **Row limit:** High (500+) if flow processes many items
 
-**Filter:** Created date overlaps with Batch Failure End date (within current month)
+### View Best Practices
 
-**When to use:** Development/testing (can likely be hidden from normal users)
+**Naming conventions:**
+- Personal views: Use your name
+- Functional views: Describe the purpose (e.g., "Overdue Items")
+- Admin/flow views: Prefix with "zz" to sort to bottom
 
-### 5. SOX
+**Column selection:**
+- Include only columns relevant to the view's purpose
+- Too many columns makes the view cluttered
+- Use "Position from Left" to order columns logically
 
-**Purpose:** SOX compliance tracking
+**Filtering tips:**
+- Combine multiple conditions with AND/OR
+- Use [Me] token for personal views
+- Filter out completed/canceled items for active work views
 
-**Key Columns:**
-- Title
-- CLOSER
-- STATUS
-- DAYS IN STATUS
-- BLOCKERS
-- Storeroom/FCC Status
-- Last Touched
-- STATION COUNT
-- DESIGN GROUP
-- INVOICE-TO
-- INSERVICE DATE
-- SOX TIMER
+**Sorting tips:**
+- Use StatusOrder for workflow-ordered views
+- Sort by date fields for deadline tracking
+- Add secondary sort for items with same primary value
 
-**When to use:** Compliance audits, tracking aging work orders
-
-### 6. SR/FCC
-
-**Purpose:** Focus on Storeroom and FCC communications
-
-**Sorted by:** StatusOrder
-
-**Key Columns:**
-- STATUS
-- Title
-- CLOSER
-- Storeroom Status
-- SR Start/End
-- FCC Status
-- FCC Start/End
-- Last Touched
-- StatusOrder
-
-**When to use:** Managing external communications
-
-### 7. zzRyan
-
-**Purpose:** Filtered view for Jerel Morrow (specific statuses)
-
-**Filter:**
-- CLOSER equals "Jerel Morrow"
-- AND STATUS is one of: Processing, Finalizing, Closed, Ready for Assignment
-
-**Sorted by:** StatusOrder
-
-**When to use:** Individual closer's active work (another personal view template)
-
-### 8. Flow – Daily Calculator
-
-**Purpose:** Minimal view for Power Automate flow
-
-**Key Columns:**
-- Title
-- ID
-- STATUS
-- STATUS CHANGED DATE
-- INSERVICE DATE
-
-**When to use:** Automated processing (Power Automate likely uses this)
-
-### 9. zz Flow – Daily Calculator
-
-**Purpose:** Backup/archived version of Flow view
-
-**When to use:** Reference only (appears to be a duplicate)
+**Public vs. Private:**
+- Make views public if the whole team needs them
+- Keep personal workload views private
+- Prefix test/temporary views with "zz" or "test"
 
 ---
 

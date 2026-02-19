@@ -11,7 +11,7 @@
 1. [Overview](#overview)
 2. [List Settings and Configuration](#list-settings-and-configuration)
 3. [Understanding the Fields](#understanding-the-fields)
-4. [Views Explained](#views-explained)
+4. [Setting Up Views](#setting-up-views)
 5. [How to Make Common Changes](#how-to-make-common-changes)
 6. [Understanding Field Dependencies](#understanding-field-dependencies)
 7. [Troubleshooting](#troubleshooting)
@@ -26,9 +26,7 @@ The **Drafting Team Tracker** is a Microsoft List for managing drafting and mapp
 
 ### Key Statistics
 
-- **Total Items**: 187 work orders
 - **Total Fields**: 53 columns
-- **Views**: 3 different views
 - **Versioning**: Enabled (keeps up to 50 versions)
 - **Attachments**: Allowed
 
@@ -235,74 +233,129 @@ For **TxDOT Permit** requests, additional tracking fields are available:
 
 ---
 
-## Views Explained
+## Setting Up Views
 
-The list has **3 views** optimized for different purposes:
+Views help you filter, sort, and organize the list data for different purposes. Here's how to create useful views for the Drafting Team Tracker.
 
-### 1. All Items
+### How to Create a New View
 
-**What it shows:** Complete list of all work orders
+1. Click the view dropdown (next to current view name)
+2. Select **Create new view**
+3. Choose **Standard view**
+4. Name your view descriptively
+5. Configure columns, filters, and sorting
+6. Click **OK**
 
-**Displayed Columns:**
-- WO Number (LinkTitle)
-- Status
-- Request Type
-- Need Date
-- # of Work Stations (WorkStations)
-- Requestor
-- EJT (EstHoursCalc) - calculated hours
-- Assigned Drafter
-- Start Date
-- Delivered Date
-- High Priority Approved?
-- Client
+### Recommended View Types
 
-**Settings:**
-- Shows **5000 items per page** (very high limit - essentially shows all)
-- **Sorted by:** High Priority Approved (descending) - puts approved priorities at top
-- No filters applied
+#### All Items Overview
 
-**When to use:** Full overview, tracking all work orders, exporting data
+Complete list for tracking and exporting.
 
-### 2. Mapping Request
+**Setup:**
+1. Name: "All Items"
+2. **Columns to include:**
+   - WO Number, Status, Request Type, Need Date
+   - # of Work Stations, Requestor, EJT
+   - Assigned Drafter, Start Date, Delivered Date
+   - High Priority Approved?, Client
+3. **Filter:** None (shows everything)
+4. **Sort by:** High Priority Approved (descending) - priorities at top
+5. **Row limit:** High (500+) for full visibility
 
-**What it shows:** Simplified view for mapping requests
+#### My Assigned Work
 
-**Displayed Columns:**
-- (No columns are displayed - this appears to be a template/form view)
+Personal view for drafters.
 
-**Settings:**
-- Shows 30 items per page
-- No filters applied
+**Setup:**
+1. Name: "My Work" or your name
+2. **Columns to include:**
+   - WO Number, Status, Request Type, Need Date
+   - # of Work Stations, EJT, Client
+   - High Priority Approved?
+3. **Filter:** 
+   - Assigned Drafter equals [Me]
+   - AND Status not equal to "Delivered"
+   - AND Status not equal to "Canceled"
+4. **Sort by:** Need Date (ascending) - deadlines first
 
-**When to use:** Possibly used with a custom form for new submissions
+#### TxDOT/RULIS Tracking
 
-### 3. TxDOT - RULIS
+For managing TxDOT permit workflows.
 
-**What it shows:** TxDOT permit requests only
+**Setup:**
+1. Name: "TxDOT - RULIS"
+2. **Columns to include:**
+   - WO Number, Status, Need Date
+   - # of Work Stations, Requestor, Assigned Drafter
+   - RULIS Status, RULIS Submission Date
+   - RULIS Additional Info Req., RULIS Application Number
+3. **Filter:** Request Type equals "TxDOT Permit"
+4. **Sort by:** RULIS Status or Need Date
 
-**Displayed Columns:**
-- WO Number
-- Status
-- Request Type
-- Need Date
-- # of Work Stations
-- Requestor
-- EJT (calculated hours)
-- Assigned Drafter
-- Start Date
-- Delivered Date
-- High Priority Approved?
-- RULIS Status
-- RULIS Submission Date
-- RULIS Additional Info Req.
-- RULIS Application Number
+#### High Priority Queue
 
-**Settings:**
-- Shows 30 items per page
-- **Filtered to:** Request Type equals "TxDOT Permit"
+For monitoring urgent requests.
 
-**When to use:** Managing TxDOT permits through the RULIS system
+**Setup:**
+1. Name: "High Priority"
+2. **Columns to include:**
+   - WO Number, Status, Request Type, Need Date
+   - Requestor, High Priority Reason
+   - Assigned Drafter, High Priority Approved?
+3. **Filter:** High Priority equals Yes
+4. **Sort by:** High Priority Approved (descending), then Need Date (ascending)
+
+#### Overdue Items
+
+For tracking missed deadlines.
+
+**Setup:**
+1. Name: "Overdue"
+2. **Columns to include:**
+   - WO Number, Status, Need Date, Assigned Drafter
+   - Request Type, Client, High Priority Approved?
+3. **Filter:**
+   - Need Date is less than [Today]
+   - AND Status not equal to "Delivered"
+   - AND Status not equal to "Canceled"
+4. **Sort by:** Need Date (ascending) - oldest first
+
+#### Request Type Views
+
+Create separate views for specific request types.
+
+**Setup:**
+1. Name: "City Permits" (or other request type)
+2. **Filter:** Request Type equals "City Permit"
+3. Include relevant columns for that work type
+
+### View Best Practices
+
+**Naming conventions:**
+- Personal views: Use your name or "My [Purpose]"
+- Functional views: Describe the purpose clearly
+- Form/template views: Prefix with "zz" to sort to bottom
+
+**Column selection:**
+- Include only columns relevant to the view's purpose
+- EJT (calculated hours) is useful for workload planning
+- High Priority Approved should appear in most active work views
+
+**Filtering tips:**
+- Use [Me] for personal drafter views
+- Filter out Delivered and Canceled for active work
+- Combine Request Type filter with status filters
+
+**Sorting tips:**
+- Sort by Need Date for deadline-focused views
+- Sort by High Priority Approved (descending) to surface urgent work
+- Add secondary sort by Need Date for same-priority items
+
+**Public vs. Private:**
+- Make team-wide views public
+- Keep personal views private
+- Drafting PC may want views for workload balancing
 
 ---
 
