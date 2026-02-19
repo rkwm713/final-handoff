@@ -57,6 +57,11 @@ export const navigation = [
     title: 'EV Tracker',
     children: [
       {
+        title: 'Project Overview',
+        path: '/ev/overview',
+        description: 'Complete workflow from intake to completion',
+      },
+      {
         title: 'User Guide',
         path: '/ev/guide',
         description: 'Fields, views, and workflows for the EV Tracker',
@@ -120,6 +125,7 @@ export const docPaths = {
   '/drafting/automation': '/docs/drafting/automation.md',
   '/drafting/excel-info': '/docs/drafting/excel-info.md',
   '/drafting/ai-prompts': '/docs/drafting/ai-prompts.md',
+  '/ev/overview': '/docs/ev/overview.md',
   '/ev/guide': '/docs/ev/guide.md',
   '/ev/automation': '/docs/ev/automation.md',
   '/ev/excel-info': '/docs/ev/excel-info.md',

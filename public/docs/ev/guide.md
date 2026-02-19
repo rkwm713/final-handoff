@@ -642,10 +642,14 @@ When working with Power Automate or other integrations, use these **internal nam
 
 ## Related Documentation
 
+🗺️ **[Project Overview](overview)** - Complete end-to-end workflow from intake to completion, including who does what and when
+
 📘 **[Automation Guide](automation)** - Explains all the Power Automate flows that run automatically on this list, including:
 - Status Change Logger (records every status change to an Excel log, calculates time in each status, and updates Previous Status tracking)
 
 📊 **[Excel Info](excel-info)** - Power Query M Code documentation for the EV PM Tracker Excel file
+
+🤖 **[AI Prompts](ai-prompts)** - Copy-paste prompts for getting AI help with EV tracker tasks
 
 ---
 
