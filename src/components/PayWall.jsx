@@ -65,7 +65,7 @@ export default function PayWall({ children }) {
                 </p>
               </div>
 
-              <div className="paywall-plans">
+              <div className="paywall-plans three-plans">
                 <div 
                   className={`plan-card ${selectedPlan === 'paygo' ? 'selected' : ''}`}
                   onClick={() => setSelectedPlan('paygo')}
@@ -80,7 +80,6 @@ export default function PayWall({ children }) {
                     <li>Unlimited page views</li>
                     <li>Real-time billing</li>
                     <li>No commitment</li>
-                    <li>Premium support</li>
                   </ul>
                   <div className="plan-note">
                     Billed every 60 seconds
@@ -102,10 +101,29 @@ export default function PayWall({ children }) {
                     <li>All documentation</li>
                     <li>Priority updates</li>
                     <li>24/7 support</li>
-                    <li>Export to PDF</li>
                   </ul>
                   <div className="plan-savings">
                     Save $280/hour vs Pay As You Go!
+                  </div>
+                </div>
+
+                <div 
+                  className={`plan-card cheapskate ${selectedPlan === 'free' ? 'selected' : ''}`}
+                  onClick={() => setSelectedPlan('free')}
+                >
+                  <div className="plan-badge lame">CHEAPSKATE</div>
+                  <h3>Free</h3>
+                  <div className="plan-price">
+                    <span className="price">$0</span>
+                    <span className="period">/forever</span>
+                  </div>
+                  <ul className="plan-features">
+                    <li>Basic access</li>
+                    <li>Limited features</li>
+                    <li>No support</li>
+                  </ul>
+                  <div className="plan-shame">
+                    If you're too cheap...
                   </div>
                 </div>
               </div>
@@ -116,7 +134,7 @@ export default function PayWall({ children }) {
                 onClick={() => handleSubscribe(selectedPlan)}
               >
                 {selectedPlan 
-                  ? `Subscribe to ${selectedPlan === 'monthly' ? 'Monthly Pro' : 'Pay As You Go'}` 
+                  ? `Subscribe to ${selectedPlan === 'monthly' ? 'Monthly Pro' : selectedPlan === 'free' ? 'Free Plan' : 'Pay As You Go'}` 
                   : 'Select a Plan to Continue'}
               </button>
 
@@ -143,6 +161,11 @@ export default function PayWall({ children }) {
               <div className="fake-card">
                 <span>VISA ****4242</span>
               </div>
+              {selectedPlan === 'free' && (
+                <div className="processing-charge">
+                  Charging: <strong>$20.00/month</strong> to your card...
+                </div>
+              )}
             </div>
           )}
 

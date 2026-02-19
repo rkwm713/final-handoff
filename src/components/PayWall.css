@@ -22,8 +22,8 @@
   background: #ffffff;
   border-radius: 16px;
   padding: 40px;
-  max-width: 700px;
-  width: 90%;
+  max-width: 900px;
+  width: 95%;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -91,8 +91,19 @@
   margin-bottom: 24px;
 }
 
+.paywall-plans.three-plans {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 800px) {
+  .paywall-plans.three-plans {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 600px) {
-  .paywall-plans {
+  .paywall-plans,
+  .paywall-plans.three-plans {
     grid-template-columns: 1fr;
   }
 }
@@ -127,6 +138,30 @@
   box-shadow: 0 4px 12px rgba(244, 123, 32, 0.2);
 }
 
+.plan-card.cheapskate {
+  border-color: #ccc;
+  border-style: dashed;
+}
+
+.plan-card.cheapskate:hover {
+  border-color: #888;
+}
+
+.plan-card.cheapskate.selected {
+  border-color: #888;
+  background: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.plan-card.cheapskate .price {
+  color: #888;
+}
+
+.plan-card.cheapskate .plan-features li::before {
+  content: "~";
+  color: #999;
+}
+
 .plan-badge {
   position: absolute;
   top: -10px;
@@ -143,6 +178,10 @@
 
 .plan-badge.best {
   background: linear-gradient(135deg, #F47B20, #ff9a44);
+}
+
+.plan-badge.lame {
+  background: #888;
 }
 
 .plan-card h3 {
@@ -212,6 +251,19 @@
   padding-top: 8px;
   border-top: 1px solid #fee2cc;
   background: #fff9f5;
+  margin: 0 -24px -24px -24px;
+  padding: 12px;
+  border-radius: 0 0 10px 10px;
+}
+
+.plan-shame {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
+  padding-top: 8px;
+  border-top: 1px solid #e0e0e0;
+  background: #f9f9f9;
   margin: 0 -24px -24px -24px;
   padding: 12px;
   border-radius: 0 0 10px 10px;
@@ -305,6 +357,26 @@
   font-family: monospace;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
+}
+
+.processing-charge {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 1rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.processing-charge strong {
+  font-weight: 700;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
 /* Success State */
