@@ -4,6 +4,16 @@
 
 ---
 
+## New Here? Start with These
+
+If you're taking over these projects and haven't used Microsoft Lists, Power Automate, or Power Query before, read these two pages first:
+
+1. **[Start Here](start-here)** -- What all these tools are and how to access them (5 min read)
+2. **[Everyday Tasks](everyday-tasks)** -- Step-by-step for the things you'll do daily (reference / bookmark)
+3. Then pick a tracker below and start with its **Project Overview**
+
+---
+
 ## What Do You Need?
 
 ### "I need to understand the overall project workflow"
@@ -12,11 +22,10 @@ Start with the **Project Overview** to see how a project flows from start to fin
 
 | If you work on... | Go to |
 |-------------------|-------|
+| Work order closing & as-builts | [Closing Project Overview](closing/overview) |
 | Drafting, permits & RULIS | [Drafting Project Overview](drafting/overview) |
 | Electric Vehicle projects | [EV Project Overview](ev/overview) |
 | Small Cell projects | [Small Cell Project Overview](small-cell/overview) |
-
-> **Note:** Project Overview pages include complete workflow phases, status guides, and decision trees. Closing Tracker overview coming soon.
 
 ---
 

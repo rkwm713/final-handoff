@@ -143,9 +143,17 @@ export default function DocPage() {
             },
             a: ({ href, children, ...props }) => {
               const isExternal = href && (href.startsWith('http') || href.startsWith('//'));
+              const isDownload = href && href.startsWith('/context/');
               if (isExternal) {
                 return (
                   <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+                    {children}
+                  </a>
+                );
+              }
+              if (isDownload) {
+                return (
+                  <a href={href} download {...props}>
                     {children}
                   </a>
                 );

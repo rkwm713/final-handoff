@@ -1,0 +1,363 @@
+.paywall-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 15, 26, 0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.paywall-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.paywall-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.paywall-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.paywall-icon {
+  width: 32px;
+  height: 32px;
+  color: #04458D;
+}
+
+.paywall-logo span {
+  font-family: var(--font-heading, 'Saira', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #04458D;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.paywall-header h1 {
+  font-family: var(--font-heading, 'Saira', sans-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0A0F1A;
+  margin: 0 0 12px 0;
+}
+
+.paywall-subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.paywall-plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .paywall-plans {
+    grid-template-columns: 1fr;
+  }
+}
+
+.plan-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.plan-card:hover {
+  border-color: #04458D;
+  transform: translateY(-2px);
+}
+
+.plan-card.selected {
+  border-color: #04458D;
+  background: #f8fafc;
+  box-shadow: 0 4px 12px rgba(4, 69, 141, 0.15);
+}
+
+.plan-card.recommended {
+  border-color: #F47B20;
+}
+
+.plan-card.recommended.selected {
+  border-color: #F47B20;
+  background: #fff9f5;
+  box-shadow: 0 4px 12px rgba(244, 123, 32, 0.2);
+}
+
+.plan-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #04458D;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+.plan-badge.best {
+  background: linear-gradient(135deg, #F47B20, #ff9a44);
+}
+
+.plan-card h3 {
+  font-family: var(--font-heading, 'Saira', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0A0F1A;
+  margin: 8px 0 16px 0;
+  text-align: center;
+}
+
+.plan-price {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.plan-price .price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #04458D;
+}
+
+.plan-card.recommended .price {
+  color: #F47B20;
+}
+
+.plan-price .period {
+  font-size: 1rem;
+  color: #666;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+
+.plan-features li {
+  padding: 6px 0;
+  padding-left: 24px;
+  position: relative;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.plan-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.plan-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #999;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+}
+
+.plan-savings {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #F47B20;
+  font-weight: 600;
+  padding-top: 8px;
+  border-top: 1px solid #fee2cc;
+  background: #fff9f5;
+  margin: 0 -24px -24px -24px;
+  padding: 12px;
+  border-radius: 0 0 10px 10px;
+}
+
+.paywall-subscribe-btn {
+  width: 100%;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-heading, 'Saira', sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #04458D, #0066cc);
+  color: white;
+}
+
+.paywall-subscribe-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(4, 69, 141, 0.3);
+}
+
+.paywall-subscribe-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.paywall-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.paywall-footer p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #22c55e;
+  margin: 0 0 8px 0;
+}
+
+.paywall-legal {
+  font-size: 0.7rem !important;
+  color: #999 !important;
+  line-height: 1.4;
+}
+
+/* Processing State */
+.paywall-processing {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #04458D;
+  border-radius: 50%;
+  margin: 0 auto 24px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.paywall-processing h2 {
+  font-family: var(--font-heading, 'Saira', sans-serif);
+  font-size: 1.5rem;
+  color: #0A0F1A;
+  margin: 0 0 8px 0;
+}
+
+.paywall-processing p {
+  color: #666;
+  margin: 0 0 24px 0;
+}
+
+.fake-card {
+  display: inline-block;
+  background: linear-gradient(135deg, #1a1f71, #2d4a9e);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+/* Success State */
+.paywall-success {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.success-icon svg {
+  width: 40px;
+  height: 40px;
+  color: white;
+}
+
+.paywall-success h2 {
+  font-family: var(--font-heading, 'Saira', sans-serif);
+  font-size: 1.5rem;
+  color: #0A0F1A;
+  margin: 0 0 8px 0;
+}
+
+.paywall-success p {
+  color: #666;
+  margin: 0 0 16px 0;
+}
+
+.paywall-success .success-note {
+  color: #04458D;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.paywall-success .success-note:last-child {
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 8px;
+}

@@ -4,8 +4,33 @@ export const navigation = [
     path: '/',
   },
   {
+    title: 'Getting Started',
+    children: [
+      {
+        title: 'Start Here',
+        path: '/start-here',
+        description: 'What SharePoint, Power Automate, and Power Query are and how to access them',
+      },
+      {
+        title: 'Everyday Tasks',
+        path: '/everyday-tasks',
+        description: 'Daily operations cheat sheet for lists, flows, and Excel',
+      },
+      {
+        title: 'AI Context Files',
+        path: '/context-files',
+        description: 'Download context files to give ChatGPT full knowledge of each tracker',
+      },
+    ],
+  },
+  {
     title: 'Closing Tracker',
     children: [
+      {
+        title: 'Project Overview',
+        path: '/closing/overview',
+        description: 'Complete workflow from intake to completion',
+      },
       {
         title: 'User Guide',
         path: '/closing/guide',
@@ -122,6 +147,10 @@ export const navigation = [
 
 export const docPaths = {
   '/': '/docs/index.md',
+  '/start-here': '/docs/start-here.md',
+  '/everyday-tasks': '/docs/everyday-tasks.md',
+  '/context-files': '/docs/context-files.md',
+  '/closing/overview': '/docs/closing/overview.md',
   '/closing/guide': '/docs/closing/guide.md',
   '/closing/automation': '/docs/closing/automation.md',
   '/closing/excel-info': '/docs/closing/excel-info.md',

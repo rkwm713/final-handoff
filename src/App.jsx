@@ -1,15 +1,22 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import DocPage from './components/DocPage';
+import PayWall from './components/PayWall';
 import './styles/global.css';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <PayWall>
+      <BrowserRouter>
+        <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<DocPage />} />
+          {/* Getting Started */}
+          <Route path="start-here" element={<DocPage />} />
+          <Route path="everyday-tasks" element={<DocPage />} />
+          <Route path="context-files" element={<DocPage />} />
           {/* Closing Tracker */}
+          <Route path="closing/overview" element={<DocPage />} />
           <Route path="closing/guide" element={<DocPage />} />
           <Route path="closing/automation" element={<DocPage />} />
           <Route path="closing/excel-info" element={<DocPage />} />
@@ -35,7 +42,8 @@ export default function App() {
           {/* Catch-all */}
           <Route path="*" element={<DocPage />} />
         </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </PayWall>
   );
 }

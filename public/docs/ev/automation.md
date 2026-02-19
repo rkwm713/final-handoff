@@ -19,23 +19,9 @@
 
 ## What is Power Automate?
 
-### The Simple Explanation
+> **New to Power Automate?** Read the [Start Here](../start-here#what-is-power-automate) page for a full introduction to what Power Automate is, how flows work, and how to access the Power Automate portal.
 
-**Power Automate** is like having a helpful robot assistant that watches your Microsoft List and does certain tasks automatically. Instead of you having to remember to record status changes or calculate durations, the "flow" does it for you.
-
-### How It Works
-
-1. **Something happens** in your list (like changing a status)
-2. **The flow notices** this change
-3. **The flow takes action** (like recording the change in Excel)
-4. **You see the result** without having to do anything extra
-
-### What You Need to Know
-
-- Flows run in the background - you won't see them working
-- Changes may take 1-5 minutes to appear
-- If something doesn't update automatically, there may be a problem with the flow
-- You don't need to do anything to make flows run - they work automatically
+**Quick recap:** Power Automate runs "flows" in the background that watch your list and take action automatically (e.g., logging status changes to Excel). Changes appear within 1-5 minutes. You don't need to do anything to make them run.
 
 ---
 
